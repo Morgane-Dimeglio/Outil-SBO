@@ -190,7 +190,7 @@ body{font-family:'Poppins',sans-serif;background:var(--grey);color:var(--black);
           <div class="ptr" id="ptr" style="left:5%"></div>
         </div>
         <div class="band-bar"></div>
-        <div class="band-lvls"><span>Exploration</span><span>Construction</span><span>Maturité avancée</span></div>
+        <div class="band-lvls"><span>Exploration</span><span>Initiation</span><span>Pilotage</span></div>
       </div>
     </div>
     <div class="radar-card">
@@ -357,6 +357,7 @@ var AXES = [
     ]
   }
 ];
+
 
 var TOTAL = 0;
 for (var a = 0; a < AXES.length; a++) TOTAL += AXES[a].subaxes.length;
@@ -552,9 +553,9 @@ function showResults() {
   global = global / AXES.length;
 
   var profile;
-  if (global < 1.67) profile = { title: "Phase d'exploration", desc: "Vous démarrez votre transformation SBO. La prise de conscience est là, les premières fondations stratégiques, culturelles et opérationnelles restent à construire.", intro: "Vos axes les plus faibles représentent vos priorités immédiates. Concentrez vos efforts sur ces fondations avant d'aller plus loin." };
-  else if (global < 2.34) profile = { title: "Phase de construction", desc: "Vous êtes en déploiement actif. Certains axes progressent bien, d'autres nécessitent encore d'être consolidés pour atteindre la maturité opérationnelle complète.", intro: "Certains axes freinent votre progression globale. Voici les leviers à activer en priorité pour accélérer votre maturité SBO." };
-  else profile = { title: "Maturité avancée", desc: "Vous avez atteint un niveau élevé de maturité SBO. Il s'agit maintenant d'industrialiser, de mesurer l'impact et d'innover par la donnée.", intro: "Vous êtes à un niveau avancé. Ces recommandations ciblent les derniers points d'optimisation pour atteindre l'excellence SBO." };
+  if (global < 1.1) profile = { title: "Phase de réflexion et d'exploration", desc: "Vous explorez le champ des possibles du modèle SBO et commencez à identifier les angles d'intérêt pour votre organisation.", intro: "Vos axes les plus faibles représentent vos priorités immédiates. Concentrez vos efforts sur ces fondations avant d'aller plus loin." };
+  else if (global <= 2) profile = { title: "Phase d'initiation et d'expérimentation", desc: "Vous instaurez un socle fondamental à la transformation et initiez de premières actions clés.", intro: "Certains axes freinent votre progression globale. Voici les leviers à activer en priorité pour accélérer votre maturité SBO." };
+  else profile = { title: "Phase de construction et de pilotage", desc: "Vous êtes relativement mature dans l'approche et continuez à construire les briques d'une approche SBO qui vous ressemble.", intro: "Vous êtes à un niveau avancé. Ces recommandations ciblent les derniers points d'optimisation pour atteindre l'excellence SBO." };
 
   document.getElementById("scoreNum").innerHTML = global.toFixed(1) + "<span> /3</span>";
   document.getElementById("bandTitle").textContent = profile.title;
